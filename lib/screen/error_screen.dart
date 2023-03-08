@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_actual/layout/default_layout.dart';
 
-class OneScreen extends StatelessWidget {
-  const OneScreen({Key? key}) : super(key: key);
+class ErrorScreen extends StatelessWidget {
+  final String error;
+
+  const ErrorScreen({required this.error, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +13,12 @@ class OneScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Text(error),
           ElevatedButton(
             onPressed: () {
-              context.pop();
+              context.go('/');
             },
-            child: Text('POP'),
+            child: Text('홈으로'),
           ),
         ],
       ),
